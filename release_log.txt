@@ -1,11 +1,16 @@
-Document last updated on 28/03/2023 at 16:13 CET
+Document last updated on 03/04/2023 at 22:08 CET
 
 **Release log on GScri**
 
-First Iteration(17/03/2023)
->[NEW] A statis GCode was successfully converted to movel movej commands based on the GCode with fixed speed and accelaration.
+---------------
 
->[ISSUE] If any of the coordinates is missing, iteration failed which creates problem only if E or F is with G0/G1.
+Third Iteration(28/03/2023)-
+>[NEW] User is now able to convert G0 & G1 codes to its respective UR Script commands.
+
+>[SOLVED] Console immediate crashing is now resolved. Alert on close_window event is enabled. 
+
+>[ISSUE] Feed rate and Extrusion Speed is not enabled.
+>[ISSUE] Executable not able to install because of Windows Secuirity scan.
 
 ---------------
 
@@ -21,11 +26,9 @@ Second Iteration(27/03/2023)-
 
 ---------------
 
-Third Iteration(28/03/2023)-
->[NEW] User is now able to convert G0 & G1 codes to its respective UR Script commands.
+First Iteration(17/03/2023)
+>[NEW] A statis GCode was successfully converted to movel movej commands based on the GCode with fixed speed and accelaration.
 
->[SOLVED] Console immediate crashing is now resolved. Alert on close_window event is enabled. 
-
->[ISSUE] Feed rate and Extrusion Speed is not enabled.
+>[ISSUE] If any of the coordinates is missing, iteration failed which creates problem only if E or F is with G0/G1.
 
 

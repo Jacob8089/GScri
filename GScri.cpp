@@ -1,8 +1,9 @@
-#include <iostream>
+#include<iostream>
 #include<string>
 #include<vector>
-#include <cstring>
-#include<windows.h>   
+#include<cstring>
+#include<windows.h> 
+#include<stdlib.h>  
 using namespace std;
 
 int main() {
@@ -395,7 +396,7 @@ int main() {
                     }}}
             if(input_2=="0"){std::cout<<"\nThe converted UR Command is-"<<"\nmovej(["<<psx<<","<<psy<<","<<psz<<",0,0,0"<<"],accel_mss,speed_ms,0,0.000)"<<std::endl;}
             else if(input_2=="1"){std::cout<<"\nThe converted UR Script command is-"<<"\nmovel(["<<psx<<","<<psy<<","<<psz<<",0,0,0"<<"],accel_mss,speed_ms,0,0.000)"<<std::endl;}
-            else{std::cout<<"\n[Critical]Not sure on what happened"<<std::endl;}
+            else{system("Color 0C");std::cout<<"\n[Critical]Not sure on what happened"<<std::endl;}
     }
     else{std::cout<<"[Error]The entered code is not a GCode value"<<std::endl;}//end of GCode
 
