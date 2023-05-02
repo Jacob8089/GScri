@@ -2,29 +2,16 @@
 #include<string>
 #include<vector>
 #include<cstring>
+#include<algorithm>
+
 #include<windows.h> 
-#include<stdlib.h>  
+#include<stdlib.h> 
+
 using namespace std;
 
-int main() {
-    std::vector<std::string> movej;
-    std::vector<std::string> movel_vals;
-    std::vector<std::string> movel;
-    std::cout<<"   ___________           _ \n"; 
-    std::cout<<"  / ____/ ___/__________(_)\n";
-    std::cout<<" / / __ \\__ V ___/ ___/ / \n";
-    std::cout<<"/ /_/ /___/ / /__/ /  / /  \n";
-    std::cout<<"\\____//____/\\___/_/  /_/ \n";
-    std::cout<<"A GCODE to UR Script Command Converter"<<std::endl;
-    std::cout<<"MSc. Mechatronics - Mechatronics Design Build | University of Southern Denmark"<<std::endl;
-    std::cout<<"------------------------------------------------------------------------------"<<std::endl;
-    std::cout<<"\t\t\t   Author: J A C O B  T H O M A S  P U T H U K E R I L\n\n";
-    std::cout<<"\t\t\t\t\t\t     Repo: gitub.com/Jacob8089"<<std::endl;
-    std::cout<<"\t\t\t\t\t\t\t\t   Uni: sdu.dk\n\n";
-    std::cout<<"=============================================================================="<<std::endl;
-    std::string g_code;
-    std::cout<<"\nEnter your Gcode:"<<std::endl;
-    std::getline(std::cin, g_code);
+void g_code_conv(string fn_g_code){ 
+    std::string g_code=fn_g_code;
+    transform(g_code.begin(), g_code.end(), g_code.begin(), ::toupper);
     std::cout<<"\nYour entry: "<<g_code<<std::endl;
     std::string input_1=g_code.substr(0,1);
     std::cout<<"\nIdentified Code as "<<input_1<<std::endl;
@@ -417,5 +404,53 @@ int main() {
     std::cout<<"Value for Y: "<<psy<<std::endl;
     std::cout<<"Value for Z: "<<psz<<std::endl;
     std::cout<<"--------------------------"<<std::endl;
+}
+
+int main() {//driver
+    std::vector<std::string> movej;
+    std::vector<std::string> movel_vals;
+    std::vector<std::string> movel;
+    std::cout<<"   ___________          _ \n"; 
+    std::cout<<"  / ____/ ___/_________(_)\n";
+    std::cout<<" / / __ \\__ V ___/ ___/ / \n";
+    std::cout<<"/ /_/ /___/ / /__/ / / /  \n";
+    std::cout<<"\\____//____/\\___/_/ /_/ \n";
+    std::cout<<"A GCODE to UR Script Command Converter | version 1.3"<<std::endl;
+    std::cout<<"MSc. Mechatronics - Mechatronics Design Build | University of Southern Denmark"<<std::endl;
+    std::cout<<"------------------------------------------------------------------------------"<<std::endl;
+    std::cout<<"\n\t\t\t   Author: J A C O B  T H O M A S  P U T H U K E R I L\n\n";
+    std::cout<<"\t\t\t\t\t\t    Repo: github.com/Jacob8089"<<std::endl;
+    std::cout<<"\t\t\t\t\t\t\t\t   Uni: sdu.dk\n\n";
+    std::cout<<"=============================================================================="<<std::endl;
+
+    bool op_status=true;
+    int i = 0;
+    string option;
+    while (op_status) {
+           
+        // std::string dummy;
+        std::string in_g_code;
+        std::cout<<"\nEnter your Gcode:"<<std::endl;
+        std::getline(std::cin, in_g_code);
+        int in_len=in_g_code.length();
+        try{        
+            if(in_len!=0){g_code_conv(in_g_code);}
+            else{throw(in_len);}}
+
+        catch (int errorVal) {
+            cout << "Something went wrong. The length value is "<<errorVal<<endl;
+                }
+
+        cout<<"\nDo you want to continue.?(Y/N)"<<endl;
+        std::getline(std::cin, option);
+
+        if(option=="Y"||option=="y"){     
+            continue;}
+        else{op_status=false;}
+        
+        }
+        
+        cout<<"\nGScri operation is terminated."<<endl;
+        Sleep(1500);
     
-    system("PAUSE");}
+    return 0;}
