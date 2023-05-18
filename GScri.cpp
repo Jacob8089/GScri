@@ -437,6 +437,9 @@ int main() {//driver
     while (op_status) {
 
         // std::string dummy;
+        std::string tcp_vals;
+        std::cout << "\nEnter your TCP values in X, Y, Z, rx, ry & rz values in meters:" << std::endl;
+        std::getline(std::cin, tcp_vals);
         std::string in_g_code;
         std::cout << "\nEnter your Gcode:" << std::endl;
         std::getline(std::cin, in_g_code);
